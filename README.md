@@ -7,13 +7,13 @@ Team : HopeRaisers
 
 
 Contributors:
--> Umar Ali Ahamed
--> Sandhosh
--> Jeyaprakash
--> Jayakumar
--> Boyina Harshini
--> Ruthika Botla
--> Manasi Patil
+-> Umar Ali Ahamed,
+-> Sandhosh,
+-> Jeyaprakash,
+-> Jayakumar,
+-> Boyina Harshini,
+-> Ruthika Botla,
+-> Manasi Patil,
 
 database : postgresql
 spring dependency - spring web, spring jpa, spring dev tools, PostgrsSQL dependancy, awaitility
