@@ -1,12 +1,22 @@
 # SimpleCrudOrangeCap
+This simplecrud is a project as it name suggests simple spring boot app to do CRUD operations. This project is for Orange Cap Hackathon being conducted by Novel Vista 
 
-This simplecrud is a project as it name suggests simple spring boot app to do CRUD operation. this project is for Orange Cap Hackathon being conducted by novel vista who does
-training for us on behalf of capgemini....
+Build Tool : Maven
+
+Team : HopeRaisers
 
 
-build tool : Maven
-database : postgres
-spring dependency - spring web, spring jpa, spring dev tools, PostgrsSQL dependancy
+Contributors:
+-> Umar Ali Ahamed
+-> Sandhosh
+-> Jeyaprakash
+-> Jayakumar
+-> Boyina Harshini
+-> Ruthika Botla
+-> Manasi Patil
+
+database : postgresql
+spring dependency - spring web, spring jpa, spring dev tools, PostgrsSQL dependancy, awaitility
 
 
 Directory Tree Structure:
@@ -20,4 +30,4 @@ Directory Tree Structure:
 
 
 
-NOTE : before runnig the app, change the application.properties for database connectivity.
+NOTE : before runnig the app, change the application.properties for database connectivity and insert some share values in share table
