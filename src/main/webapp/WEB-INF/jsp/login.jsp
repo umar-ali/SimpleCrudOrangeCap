@@ -19,7 +19,7 @@
 <style>
 body {
 	background: #007bff;
-	background: linear-gradient(to right, #0062E6, #33AEFF);
+	background: linear-gradient(to right, #901de9, #8906a3);
 }
 
 .btn-login {
@@ -35,7 +35,7 @@ body {
 			<div class="card border-0 shadow rounded-3 my-5">
 				<div class="card-body p-4 p-sm-5">
 					<h5 class="card-title text-center mb-5 fw-light fs-5">Sign In</h5>
-						<div class="form-floating mb-3">
+						<div style="border-radius: 2pc;" class="form-floating mb-3">
 							<input type="email" class="form-control" id="floatingInput"
 								placeholder="name@example.com"> <label
 								for="floatingInput">Email address</label>
@@ -45,8 +45,14 @@ body {
 								placeholder="Password"> <label for="floatingPassword">Password</label>
 						</div>
 						<div class="d-grid">
-							<button class="btn btn-primary btn-login text-uppercase fw-bold" onclick="login()"
+							<button style = "background-color: cornflowerblue;" class="btn btn-primary btn-login text-uppercase fw-bold" onclick="login()"
 								type="submit">Login</button>
+						</div>
+						<div >
+						    <p style="font-size: small;">New User...? click sign up to register&nbsp;&nbsp;<a href="/home/signup">sign up</a></p>
+							
+							<!--<button class="btn btn-primary btn-login text-uppercase fw-bold" onclick="gotosignup()"
+								type="submit">signup</button>-->
 						</div>
 				</div>
 			</div>
@@ -115,6 +121,10 @@ body {
             return false;
         }
     }
+	
+	function gotosignup(){
+		window.location.href ="/home/signup";
+	}
 	</script>
 </body>
 </html>

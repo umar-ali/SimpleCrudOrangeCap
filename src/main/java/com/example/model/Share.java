@@ -14,7 +14,7 @@ public class Share {
 	@Column
 	private String name;
 	@Column
-	private String price;
+	private int price;
 
 	public int getShareId() {
 		return shareId;
@@ -32,12 +32,14 @@ public class Share {
 		this.name = name;
 	}
 
-	public String getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
+
+	
 
 }

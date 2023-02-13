@@ -16,14 +16,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.model.Share;
-import com.example.model.Vehicle;
+import com.example.model.ShareLedger;
+import com.example.service.ShareLedgerService;
 import com.example.service.ShareService;
-import com.example.service.VehicleService;
 
 @RestController
 @RequestMapping("/service/share")
 public class ShareController {
-
+	
+	@Autowired
+	ShareLedgerService shareLedgerService;
+	
 	@Autowired
 	ShareService shareService;
 
@@ -57,5 +60,10 @@ public class ShareController {
 	private Share update(@RequestBody Share share) {
 		shareService.saveOrUpdate(share);
 		return share;
+	}
+	
+	@GetMapping("/get/{loginId}")
+	private List<ShareLedger> getShareLedgers(@PathVariable("loginId") String loginId) {
+		return shareLedgerService.getShareLedgerByLoginId(loginId);
 	}
 }

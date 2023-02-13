@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.model.OrderLedger;
+import com.example.model.ShareLedger;
 import com.example.model.User;
 import com.example.service.OrderLedgerService;
+import com.example.service.ShareLedgerService;
+import com.example.service.ShareService;
 import com.example.service.UserService;
 
 @RestController
@@ -27,6 +30,12 @@ public class OrderLedgerController {
 	OrderLedgerService orderLedgerService;
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	ShareService shareService;
+	
+	@Autowired
+	ShareLedgerService shareLedgerService;
 
 //creating a get mapping that retrieves all the orderLedgers detail from the database   
 	@GetMapping("/get")
@@ -106,6 +115,7 @@ public class OrderLedgerController {
 			}
 		**/
 			User user = userService.getUser(orderLedger.getLoginId());
+			ShareLedger shareLedger = new ShareLedger();
 			int userCurrBal = user.getBalance();
 			if(userCurrBal < orderLedger.getTotalPurchase()) {
 				output.put("ERROR", "Not Enough Remaining Balance");
@@ -114,13 +124,17 @@ public class OrderLedgerController {
 				user.setBalance(userCurrBal -  orderLedger.getTotalPurchase());
 				userService.update(user, user.getUserId());
 				orderLedgerService.saveOrUpdate(orderLedger);
+				shareLedger.setLoginId(orderLedger.getLoginId());
+				shareLedger.setShareName(orderLedger.getShare());
+				shareLedger.setQuantity(orderLedger.getQuantity());
+				shareLedgerService.saveOrUpdate(shareLedger);
 				output.put("SUCCESS", "Order placed Successfully!");
 
 			}
 			
 			
 		} catch (Exception e) {
-			//e.printStackTrace();
+			e.printStackTrace();
 			output.put("ERROR", "Error from Server: /orderLedger/order");
 			return output.toString();
 		}

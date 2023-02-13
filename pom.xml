@@ -47,7 +47,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
-			<scope>true</scope>
+			
 		</dependency>
 		<dependency>
 			<groupId>org.codehaus.jettison</groupId>
@@ -57,6 +57,11 @@
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.awaitility</groupId>
+			<artifactId>awaitility</artifactId>
 		</dependency>
 	</dependencies>
 

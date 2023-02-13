@@ -15,16 +15,16 @@ public class User {
 	@Column
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int userId;
-	@Column
+	@Column(nullable =false)
 	private String name;
-	@Column
+	@Column(nullable = false, unique = true)
 	private String loginId;
-	@Column
+	@Column(nullable =false)
 	private int password;
-	@Column
+	@Column(nullable = false, unique = true)
 	private String uniqueId;
 	@Column
-	private int balance = 50000;
+	private int balance;
 
 	public int getBalance() {
 		return balance;
