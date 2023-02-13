@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.model.Share;
+import com.example.repository.OrderLedgerRepository;
 import com.example.repository.ShareRepository;
 
 @Service
 public class ShareService {
-
+	
+	
 	@Autowired
 	ShareRepository shareRepository;
 	
@@ -25,10 +27,15 @@ public class ShareService {
 		return shareRepository.findById(id).get();
 	}
 	
-	public Share getShare(String loginId) {
+	public Share getShareByName(String loginId) {
 		return shareRepository.findByName(loginId).get();
 	}
-
+	
+	public List<String> getListOfShares(){
+		return getAllShare().stream().map(s->s.getName()).toList();
+	}
+	
+	
 	public void saveOrUpdate(Share share) {
 		shareRepository.save(share);
 	}
@@ -39,5 +46,11 @@ public class ShareService {
 
 	public void update(Share share, int shareno) {
 		shareRepository.save(share);
+	}
+	
+	public void updatePrice(int shareId, int newPrice) {
+		Share s = shareRepository.findById(shareId).get();
+		s.setPrice(newPrice);
+		shareRepository.save(s);
 	}
 }
